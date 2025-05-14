@@ -9,29 +9,6 @@ import (
 
 var NodeID []byte
 
-func SetNodeID(id string, is_uuid bool) error {
-	var (
-		error      error
-		uuidObject uuid.UUID
-	)
-
-	if is_uuid {
-		uuidObject, error = uuid.Parse(id)
-		if error != nil {
-			return error
-		}
-
-		NodeID, error = uuidObject.MarshalBinary()
-		if error != nil {
-			return error
-		}
-	} else {
-		NodeID = []byte(id)
-	}
-
-	return nil
-}
-
 type Meta struct {
 	Timestamp uint64
 	NodeID    uint16
