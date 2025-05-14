@@ -5,12 +5,11 @@ import (
 	"time"
 
 	easysnow "github.com/cdog-shen/easy-snow"
-	"github.com/cdog-shen/easy-snow/internal"
 )
 
 func TestGenerateSnowflakeWithUUIDPerformance(t *testing.T) {
 	nodeIDStr := "6ba7b810-9dad-11d1-80b4-00c04fd430c8"
-	err := internal.SetNodeID(nodeIDStr, true)
+	err := easysnow.SetNodeID(nodeIDStr, true)
 	if err != nil {
 		t.Fatalf("Error setting NodeID: %v", err)
 	}
@@ -33,7 +32,7 @@ func TestGenerateSnowflakeWithUUIDPerformance(t *testing.T) {
 
 func TestGenerateSnowflakeIDPerformance(t *testing.T) {
 	nodeIDStr := "6ba7b810-9dad-11d1-1232-00c04fd430c8"
-	err := internal.SetNodeID(nodeIDStr, false)
+	err := easysnow.SetNodeID(nodeIDStr, false)
 	if err != nil {
 		t.Fatalf("Error setting NodeID: %v", err)
 	}
